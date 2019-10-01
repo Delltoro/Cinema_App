@@ -15,7 +15,8 @@ const cors = require('cors');
 
 
 const movies = require('./src/routes/movies');
-
+const shows = require('./src/routes/shows');
+const reservations = require('./src/routes/reservations');
 
 app.set('port', 5000);
 app.use(cors({
@@ -30,7 +31,8 @@ app.use(morgan('tiny'));
 app.use(helmet());
 
 app.use('/api/movies', movies);
-
+app.use('/api/shows', shows);
+app.use('/api/reservations',reservations);
 
 let server = app.listen(app.get('port'), () => {
     var port = server.address().port;
